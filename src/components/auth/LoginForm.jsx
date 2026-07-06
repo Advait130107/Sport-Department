@@ -16,6 +16,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Alert, AlertDescription } from "../ui/alert";
 import { loginStudent } from "../../auth/auth";
+import { Link } from "react-router-dom";
 export function LoginForm() {
   const navigate = useNavigate();
 
@@ -112,6 +113,16 @@ export function LoginForm() {
               Sign In
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
+            <div className="mt-6 text-center">
+              <p className="text-[#C9B7A6]">Don't have an account?</p>
+
+              <Link
+                to="/signup"
+                className="font-semibold text-[#D4A373] transition hover:text-white"
+              >
+                Create Account
+              </Link>
+            </div>
           </CardContent>
         </form>
       </Card>

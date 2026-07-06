@@ -55,8 +55,12 @@ export function loginStudent(rollNo, password) {
   const students = getStudents();
 
   const student = students.find(
-    (student) => student.rollNo === rollNo && student.password === password,
+    (student) =>
+      student.rollNo.trim().toLowerCase() === rollNo.trim().toLowerCase() &&
+      student.password === password,
   );
+
+  console.log("Matched Student:", student);
 
   if (!student) {
     return {

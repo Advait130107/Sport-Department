@@ -8,6 +8,7 @@ import EventsPage from "./pages/EventsPage";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import SignUpPage from "./pages/SignUpPage";
 function App() {
   return (
     <div className="min-h-screen bg-[#0B1120] text-white">
@@ -81,6 +82,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/signup" element={<SignUpPage />} />
         {/* 404 */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
