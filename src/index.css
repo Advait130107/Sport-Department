@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* ===========================
+   Coffee Theme
+=========================== */
+
+@theme {
+  --color-background: black;
+  --color-surface: #2b211b;
+  --color-card: #3a2c24;
+
+  --color-primary: #a47149;
+  --color-primary-light: #c08a5b;
+  --color-accent: #d4a373;
+
+  --color-success: #7fb069;
+  --color-danger: #d65d5d;
+
+  --color-text: #f8f4ee;
+  --color-muted: #c9b7a6;
+}
+
+/* ===========================
+   Global
+=========================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+/* Selection */
+
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #241b15;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#a47149, #d4a373);
+  border-radius: 999px;
+}
+
+/* Glass */
+
+.glass {
+  background: rgba(58, 44, 36, 0.65);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Hover */
+
+.card-hover {
+  transition: 0.35s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(164, 113, 73, 0.3);
+}
+
+/* Gradient Text */
+
+.gradient-text {
+  background: linear-gradient(90deg, #d4a373, #f6d7b0);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Glow */
+
+.glow {
+  box-shadow: 0 0 40px rgba(164, 113, 73, 0.35);
+}
