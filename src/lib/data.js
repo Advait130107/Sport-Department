@@ -296,7 +296,7 @@ export const events = [
 ];
 export const students = [
   {
-    rollNo: "TYBCS001",
+    rollNo: "13358",
     name: "Advait Uttekar",
     password: "password",
     course: "TY BSc CS",
@@ -304,7 +304,7 @@ export const students = [
     email: "advait@example.com",
   },
   {
-    rollNo: "TYBCS002",
+    rollNo: "13357",
     name: "Aditya Nair",
     password: "password",
     course: "TY BSc CS",
@@ -312,7 +312,7 @@ export const students = [
     email: "aditya@example.com",
   },
   {
-    rollNo: "TYBCS003",
+    rollNo: "13355",
     name: "Parth Tilekar",
     password: "password",
     course: "TY BSc CS",
