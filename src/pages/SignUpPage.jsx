@@ -19,7 +19,7 @@ function SignUpPage() {
         initial={{ opacity: 0, x: 70 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="mx-auto w-full max-w-md"
+        className="mx-auto w-full max-w-4xl"
       >
         <SignUpForm />
       </motion.div>

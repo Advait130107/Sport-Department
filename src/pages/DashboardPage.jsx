@@ -52,7 +52,7 @@ function DashboardPage() {
   }
   console.log(student);
   return (
-    <div className="min-h-screen bg-[#1C1511] px-6 py-8">
+    <div className="min-h-screen bg-[#0a0603] px-6 py-8">
       <div className="mx-auto max-w-7xl">
         {/* Hero Banner */}
         <div className="overflow-hidden rounded-3xl border border-[#8B5E3C]/30 bg-gradient-to-r from-[#2B211B] to-[#3A2B22] p-10 shadow-xl">
