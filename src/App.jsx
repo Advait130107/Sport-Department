@@ -7,6 +7,7 @@ import SportDetailsPage from "./pages/SportDetailsPage";
 import EventsPage from "./pages/EventsPage";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProfilePage from "./pages/ProfilePage";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 function App() {
   return (
     <div className="min-h-screen bg-[#0B1120] text-white">
@@ -18,9 +19,11 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <DashboardLayout>
-              <DashboardPage />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <DashboardPage />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
 
@@ -28,9 +31,11 @@ function App() {
         <Route
           path="/dashboard/sports"
           element={
-            <DashboardLayout>
-              <SportsPage />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <SportsPage />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
 
@@ -38,34 +43,42 @@ function App() {
         <Route
           path="/dashboard/sports/:sportId"
           element={
-            <DashboardLayout>
-              <SportDetailsPage />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <SportDetailsPage />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
 
         <Route
           path="/dashboard/events"
           element={
-            <DashboardLayout>
-              <EventsPage />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <EventsPage />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/dashboard/profile"
           element={
-            <DashboardLayout>
-              <ProfilePage />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <ProfilePage />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/dashboard/my-events"
           element={
-            <DashboardLayout>
-              <MyEventsPage />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <MyEventsPage />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
         {/* 404 */}

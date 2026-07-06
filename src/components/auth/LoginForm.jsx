@@ -15,7 +15,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Alert, AlertDescription } from "../ui/alert";
-
+import { loginStudent } from "../../auth/auth";
 export function LoginForm() {
   const navigate = useNavigate();
 
@@ -27,23 +27,15 @@ export function LoginForm() {
     e.preventDefault();
     setError("");
 
-    const student = students.find(
-      (s) => s.rollNo.toLowerCase() === rollNo.toLowerCase(),
-    );
+    const result = loginStudent(rollNo, password);
 
-    if (!student) {
-      setError("Student not found");
+    if (!result.success) {
+      setError(result.message);
       return;
     }
 
-    if (password === "password") {
-      localStorage.setItem("student", JSON.stringify(student));
-      navigate("/dashboard");
-    } else {
-      setError("Invalid Roll Number or Password");
-    }
+    navigate("/dashboard");
   };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 35 }}

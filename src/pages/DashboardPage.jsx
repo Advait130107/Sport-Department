@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import { sports } from "../lib/data";
 
 function DashboardPage() {
-  const student = JSON.parse(localStorage.getItem("student")) || {
-    name: "Student",
-  };
   const events = JSON.parse(localStorage.getItem("events")) || [];
 
   const registrations = JSON.parse(localStorage.getItem("registrations")) || [];
@@ -18,6 +15,9 @@ function DashboardPage() {
     (registration) => registration.studentId === student.id,
   );
   const recentActivities = myRegistrations.slice(-5).reverse();
+  const student = JSON.parse(localStorage.getItem("student")) || {
+    name: "Student",
+  };
   const announcements = [
     {
       id: 1,
@@ -50,6 +50,7 @@ function DashboardPage() {
   } else if (hour < 17) {
     greeting = "Good Afternoon";
   }
+  console.log(student);
   return (
     <div className="min-h-screen bg-[#1C1511] px-6 py-8">
       <div className="mx-auto max-w-7xl">
