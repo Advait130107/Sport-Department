@@ -20,3 +20,13 @@ export function saveCurrentStudent(student) {
 export function logoutStudent() {
   localStorage.removeItem(CURRENT_STUDENT_KEY);
 }
+export function updateCurrentStudent(updatedStudent) {
+  const students = getStudents();
+
+  const updatedStudents = students.map((student) =>
+    student.id === updatedStudent.id ? updatedStudent : student,
+  );
+
+  saveStudents(updatedStudents);
+  saveCurrentStudent(updatedStudent);
+}

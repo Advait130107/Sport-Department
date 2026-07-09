@@ -62,16 +62,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/dashboard/profile"
-          element={
-            <ProtectedRoute>
-              <DashboardLayout>
-                <ProfilePage />
-              </DashboardLayout>
-            </ProtectedRoute>
-          }
-        />
+
         <Route
           path="/dashboard/my-events"
           element={
@@ -83,6 +74,7 @@ function App() {
           }
         />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         {/* 404 */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

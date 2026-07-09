@@ -1,97 +1,143 @@
-import { Trophy, Calendar, User, Mail, Phone } from "lucide-react";
-
-function ProfilePage() {
-  const rollNo = localStorage.getItem("studentRollNo") || "N/A";
+import { useState } from "react";
+import { Button } from "../components/ui/button";
+import { getCurrentStudent } from "../auth/storage";
+import {
+  UserCircle2,
+  Mail,
+  Hash,
+  GraduationCap,
+  Building2,
+} from "lucide-react";
+export default function ProfilePage() {
+  const student = getCurrentStudent();
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#1C1511] px-6 py-10 text-[#F8F4EE]">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-10">
-          <p className="text-[#D4A373] uppercase tracking-[4px] text-sm">
-            Student
-          </p>
+    <div className="min-h-screen bg-[#1C1511] p-8">
+      <div className="mx-auto max-w-6xl">
+        <h1 className="mb-8 text-4xl font-black text-white">My Profile</h1>
 
-          <h1 className="mt-3 text-5xl font-black">My Profile</h1>
+        {/* Profile Header */}
+
+        <div className="rounded-3xl border border-[#5B4537] bg-[#2B211B] p-8 shadow-xl">
+          <div className="flex flex-col items-center gap-6 md:flex-row">
+            <UserCircle2 size={110} className="text-[#D4A373]" />
+
+            <div>
+              <h2 className="text-3xl font-bold text-white">{student?.name}</h2>
+
+              <p className="mt-2 text-[#C9B7A6]">Sports Member</p>
+
+              <div className="mt-4 flex gap-3">
+                <span className="rounded-full bg-[#8B5E3C]/20 px-4 py-1 text-sm text-[#D4A373]">
+                  {student?.course}
+                </span>
+
+                <span className="rounded-full bg-[#8B5E3C]/20 px-4 py-1 text-sm text-[#D4A373]">
+                  {student?.year}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3">
-          {/* Left */}
+        {/* Grid */}
 
-          <div className="rounded-3xl bg-[#2B211B] p-8">
-            <div className="mx-auto flex h-36 w-36 items-center justify-center rounded-full bg-gradient-to-br from-[#8B5E3C] to-[#D4A373]">
-              <User size={70} />
-            </div>
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          {/* Personal */}
 
-            <h2 className="mt-6 text-center text-3xl font-bold">Student</h2>
+          <div className="rounded-3xl border border-[#5B4537] bg-[#2B211B] p-6">
+            <h3 className="mb-6 text-xl font-bold text-white">
+              Personal Information
+            </h3>
 
-            <p className="text-center text-[#C9B7A6]">Roll No: {rollNo}</p>
+            <InfoRow
+              icon={<UserCircle2 size={18} />}
+              label="Full Name"
+              value={student?.name}
+            />
+
+            <InfoRow
+              icon={<Mail size={18} />}
+              label="Email"
+              value={student?.email}
+            />
+
+            <InfoRow
+              icon={<Hash size={18} />}
+              label="Roll Number"
+              value={student?.rollNo}
+            />
           </div>
 
-          {/* Right */}
+          {/* Academic */}
 
-          <div className="space-y-6 lg:col-span-2">
-            <div className="rounded-3xl bg-[#2B211B] p-8">
-              <h2 className="mb-6 text-3xl font-bold">Personal Information</h2>
+          <div className="rounded-3xl border border-[#5B4537] bg-[#2B211B] p-6">
+            <h3 className="mb-6 text-xl font-bold text-white">
+              Academic Information
+            </h3>
 
-              <div className="grid gap-6 md:grid-cols-2">
-                <div>
-                  <p className="text-[#C9B7A6]">Name</p>
-                  <h3 className="mt-2 text-xl font-semibold">Student Name</h3>
-                </div>
+            <InfoRow
+              icon={<GraduationCap size={18} />}
+              label="Course"
+              value={student?.course}
+            />
 
-                <div>
-                  <p className="text-[#C9B7A6]">Department</p>
-                  <h3 className="mt-2 text-xl font-semibold">
-                    BSc Computer Science
-                  </h3>
-                </div>
+            <InfoRow
+              icon={<Building2 size={18} />}
+              label="Department"
+              value={student?.department}
+            />
 
-                <div>
-                  <p className="text-[#C9B7A6]">Email</p>
-                  <h3 className="mt-2 text-xl font-semibold">
-                    student@email.com
-                  </h3>
-                </div>
-
-                <div>
-                  <p className="text-[#C9B7A6]">Phone</p>
-                  <h3 className="mt-2 text-xl font-semibold">
-                    +91 XXXXX XXXXX
-                  </h3>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              <div className="rounded-3xl bg-[#2B211B] p-6">
-                <Trophy className="text-[#D4A373]" />
-
-                <h2 className="mt-4 text-4xl font-black">3</h2>
-
-                <p className="text-[#C9B7A6]">Sports Joined</p>
-              </div>
-
-              <div className="rounded-3xl bg-[#2B211B] p-6">
-                <Calendar className="text-[#D4A373]" />
-
-                <h2 className="mt-4 text-4xl font-black">5</h2>
-
-                <p className="text-[#C9B7A6]">Events</p>
-              </div>
-
-              <div className="rounded-3xl bg-[#2B211B] p-6">
-                <Trophy className="text-[#D4A373]" />
-
-                <h2 className="mt-4 text-4xl font-black">2</h2>
-
-                <p className="text-[#C9B7A6]">Achievements</p>
-              </div>
-            </div>
+            <InfoRow
+              icon={<GraduationCap size={18} />}
+              label="Academic Year"
+              value={student?.year}
+            />
           </div>
+        </div>
+        <Button
+          onClick={() => setOpen(true)}
+          className="mt-5 rounded-xl bg-gradient-to-r from-[#8B5E3C] to-[#D4A373] px-6 py-2 text-white"
+        >
+          Edit Profile
+        </Button>
+        {/* Statistics */}
+
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <StatCard title="Course" value={student?.course || "-"} />
+
+          <StatCard title="Department" value={student?.department || "-"} />
+
+          <StatCard title="Year" value={student?.year || "-"} />
+          <StatCard title="Sports Joined" value="0" />
+
+          <StatCard title="Profile Completion" value="100%" />
         </div>
       </div>
     </div>
   );
 }
 
-export default ProfilePage;
+function InfoRow({ icon, label, value }) {
+  return (
+    <div className="mb-5 flex items-center justify-between rounded-xl bg-[#3A2C24] p-4">
+      <div className="flex items-center gap-3 text-[#D4A373]">
+        {icon}
+        <span>{label}</span>
+      </div>
+
+      <span className="font-semibold text-white">{value || "-"}</span>
+    </div>
+  );
+}
+
+function StatCard({ title, value }) {
+  return (
+    <div className="rounded-3xl border border-[#5B4537] bg-[#2B211B] p-6 text-center">
+      <h2 className="text-4xl font-black text-[#D4A373]">{value}</h2>
+
+      <p className="mt-3 text-[#C9B7A6]">{title}</p>
+    </div>
+  );
+}
