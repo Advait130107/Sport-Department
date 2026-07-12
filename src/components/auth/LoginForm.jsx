@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Trophy, AlertCircle, ArrowRight } from "lucide-react";
+import { Trophy, AlertCircle, ArrowRight, LogIn } from "lucide-react";
 import { students } from "../../lib/data";
 import {
   Card,
@@ -83,7 +83,7 @@ export function LoginForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-[#F8F4EE]">
+              <Label htmlFor="password" className="text-[#F8F4EE] bg-[#3A2C24]">
                 Password
               </Label>
 
@@ -111,7 +111,7 @@ export function LoginForm() {
               className="h-12 w-full rounded-xl bg-gradient-to-r from-[#8B5E3C] to-[#C08A5B] text-base font-semibold text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-[#A47149]/40"
             >
               Sign In
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <LogIn />
             </Button>
             <div className="mt-6 text-center">
               <p className="text-[#C9B7A6]">Don't have an account?</p>

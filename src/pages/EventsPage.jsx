@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, Calendar, Trophy, Users } from "lucide-react";
+import { Search, Calendar, Users, Podium } from "lucide-react";
 
 import EventCard from "../components/events/EventCard";
 import { events } from "../lib/data";
@@ -51,7 +51,7 @@ function EventsPage() {
 
           <h2 className="text-4xl font-bold">{events.length}</h2>
 
-          <p className="text-black-400">Upcoming Events</p>
+          <p className="text-slate-400">Upcoming Events</p>
         </div>
 
         <div className="glass rounded-3xl p-6 card-hover">
@@ -59,15 +59,15 @@ function EventsPage() {
 
           <h2 className="text-4xl font-bold">500+</h2>
 
-          <p className="text-black-400">Participants</p>
+          <p className="text-slate-400">Participants</p>
         </div>
 
         <div className="glass rounded-3xl p-6 card-hover">
-          <Trophy className="mb-3 text-yellow-400" size={34} />
+          <Podium className="mb-3 text-yellow-400" size={34} />
 
           <h2 className="text-4xl font-bold">25+</h2>
 
-          <p className="text-black-400">Winners Every Year</p>
+          <p className="text-slate-400">Winners Every Year</p>
         </div>
       </section>
 

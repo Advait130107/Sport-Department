@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search } from "lucide-react";
+import { Search, Calendar, Trophy, Users, SportShoe } from "lucide-react";
 
 import SportCard from "../components/sports/SportCard";
 import { sports } from "../lib/data";
@@ -46,18 +46,21 @@ function SportsPage() {
       {/* Stats */}
       <section className="mx-auto my-5 mb-12 grid max-w-7xl grid-cols-1 gap-6 px-6 md:grid-cols-3">
         <div className="glass rounded-3xl p-6 card-hover">
-          <h2 className="text-4xl font-bold text-blue-400">{sports.length}</h2>
-          <p className="mt-2 text-slate-400">Sports Available</p>
+          <SportShoe className="mb-3 text-yellow-400" size={34} />
+          <h2 className="text-4xl font-bold ">{sports.length}</h2>
+          <p className="mt-2 text-blue-400">Sports Available</p>
         </div>
 
         <div className="glass rounded-3xl p-6 card-hover">
-          <h2 className="text-4xl font-bold text-cyan-400">500+</h2>
-          <p className="mt-2 text-slate-400">Active Students</p>
+          <Users className="mb-3 text-green-400" size={34} />
+          <h2 className="text-4xl font-bold ">500+</h2>
+          <p className="mt-2 text-cyan-400">Active Students</p>
         </div>
 
         <div className="glass rounded-3xl p-6 card-hover">
-          <h2 className="text-4xl font-bold text-green-400">50+</h2>
-          <p className="mt-2 text-slate-400">Annual Events</p>
+          <Calendar className="mb-3 text-cyan-400" size={34} />
+          <h2 className="text-4xl font-bold  ">50+</h2>
+          <p className="mt-2 text-green-400">Annual Events</p>
         </div>
       </section>
 
@@ -68,7 +71,7 @@ function SportsPage() {
 
           <input
             type="text"
-            placeholder="Search sports..."
+            placeholder="Search Sports..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full bg-transparent text-white outline-none placeholder:text-black-500"

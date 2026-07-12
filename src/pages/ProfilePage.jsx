@@ -7,17 +7,32 @@ import {
   Hash,
   GraduationCap,
   Building2,
+  Pencil,
+  ArrowLeft,
 } from "lucide-react";
+
+import { useNavigate } from "react-router-dom";
 import EditProfileModal from "../components/profile/EditProfileModal";
 export default function ProfilePage() {
   const [student, setStudent] = useState(getCurrentStudent());
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-[#1C1511] p-8">
       <div className="mx-auto max-w-6xl">
-        <h1 className="mb-8 text-4xl font-black text-white">My Profile</h1>
+        <div className="mb-8 flex items-center gap-4">
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={() => navigate("/dashboard")}
+            className="h-12 w-12 rounded-xl border-[#5B4537] bg-[#2B211B] text-[#D4A373] hover:bg-[#3A2C24] hover:text-white"
+          >
+            <ArrowLeft className="h-7 w-7" />
+          </Button>
 
+          <h1 className="text-4xl font-black text-white">My Profile</h1>
+        </div>
         {/* Profile Header */}
 
         <div className="rounded-3xl border border-[#5B4537] bg-[#2B211B] p-8 shadow-xl">
@@ -92,6 +107,22 @@ export default function ProfilePage() {
               label="Address"
               value={student?.address}
             />
+            <EditProfileModal
+              open={open}
+              onClose={() => setOpen(false)}
+              student={student}
+              onSave={setStudent}
+            />
+            <Button
+              onClick={() => {
+                console.log("Edit button clicked");
+                setOpen(true);
+              }}
+              className="mt-5 rounded-xl bg-gradient-to-r from-[#8B5E3C] to-[#D4A373] px-6 py-2 text-white"
+            >
+              <Pencil />
+              Edit Profile
+            </Button>
           </div>
 
           {/* Academic */}
@@ -119,33 +150,6 @@ export default function ProfilePage() {
               value={student?.year}
             />
           </div>
-        </div>
-        <EditProfileModal
-          open={open}
-          onClose={() => setOpen(false)}
-          student={student}
-          onSave={setStudent}
-        />
-        <Button
-          onClick={() => {
-            console.log("Edit button clicked");
-            setOpen(true);
-          }}
-          className="mt-5 rounded-xl bg-gradient-to-r from-[#8B5E3C] to-[#D4A373] px-6 py-2 text-white"
-        >
-          Edit Profile
-        </Button>
-        {/* Statistics */}
-
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <StatCard title="Course" value={student?.course || "-"} />
-
-          <StatCard title="Department" value={student?.department || "-"} />
-
-          <StatCard title="Year" value={student?.year || "-"} />
-          <StatCard title="Sports Joined" value="0" />
-
-          <StatCard title="Profile Completion" value="100%" />
         </div>
       </div>
     </div>

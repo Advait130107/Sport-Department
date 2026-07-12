@@ -1,11 +1,14 @@
 import { Calendar, CheckCircle } from "lucide-react";
+import { getCurrentStudent } from "../auth/storage";
 
 function MyEventsPage() {
-  const rollNo = localStorage.getItem("studentRollNo");
+  const student = getCurrentStudent();
 
   const registrations = JSON.parse(localStorage.getItem("registrations")) || [];
 
-  const myEvents = registrations.filter((item) => item.rollNo === rollNo);
+  const myEvents = registrations.filter(
+    (item) => item.studentId === student?.id,
+  );
 
   return (
     <div className="min-h-screen bg-[#1C1511] px-8 py-12 text-white">
@@ -48,17 +51,23 @@ function MyEventsPage() {
                 </div>
 
                 <div className="mt-8 rounded-xl bg-[#3A2C24] p-4 space-y-2">
-                  <p>
-                    <strong>Roll No:</strong> {item.rollNo}
-                  </p>
+                  <div className="mt-8 space-y-2 rounded-xl bg-[#3A2C24] p-4">
+                    <p>
+                      <strong>Roll No:</strong> {item.rollNo}
+                    </p>
 
-                  <p>
-                    <strong>Name:</strong> {item.name}
-                  </p>
+                    <p>
+                      <strong>Name:</strong> {item.name}
+                    </p>
 
-                  <p>
-                    <strong>Phone:</strong> {item.phone}
-                  </p>
+                    <p>
+                      <strong>Email:</strong> {item.email}
+                    </p>
+
+                    <p>
+                      <strong>Phone:</strong> {item.phone}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}

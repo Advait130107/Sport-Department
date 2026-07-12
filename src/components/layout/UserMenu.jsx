@@ -81,14 +81,6 @@ export function UserMenu() {
             My Profile
           </button>
 
-          <button
-            onClick={() => navigate("/my-events")}
-            className="flex w-full items-center gap-3 px-5 py-3 text-left text-[#F8F4EE] transition hover:bg-[#3A2C24]"
-          >
-            <CalendarDays size={18} />
-            My Events
-          </button>
-
           <button className="flex w-full items-center gap-3 px-5 py-3 text-left text-[#F8F4EE] transition hover:bg-[#3A2C24]">
             <Settings size={18} />
             Settings

@@ -1,23 +1,35 @@
 import { Calendar, Trophy, User, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { sports } from "../lib/data";
+import { getCurrentStudent } from "../auth/storage";
 
 function DashboardPage() {
-  const events = JSON.parse(localStorage.getItem("events")) || [];
-
-  const registrations = JSON.parse(localStorage.getItem("registrations")) || [];
-
-  const upcomingEvents = events.filter((event) => {
-    return new Date(event.date) >= new Date();
-  });
-
-  const myRegistrations = registrations.filter(
-    (registration) => registration.studentId === student.id,
-  );
-  const recentActivities = myRegistrations.slice(-5).reverse();
-  const student = JSON.parse(localStorage.getItem("student")) || {
+  // Logged-in student
+  const student = getCurrentStudent() || {
+    id: "",
     name: "Student",
   };
+
+  // Events
+  const events = JSON.parse(localStorage.getItem("events")) || [];
+
+  // Registrations
+  const registrations = JSON.parse(localStorage.getItem("registrations")) || [];
+
+  // Upcoming Events
+  const upcomingEvents = events.filter(
+    (event) => new Date(event.date) >= new Date(),
+  );
+
+  // Current Student Registrations
+  const myRegistrations = registrations.filter(
+    (registration) => registration.studentId === student?.id,
+  );
+
+  // Recent Activities
+  const recentActivities = myRegistrations.slice(-5).reverse();
+
+  // Announcements
   const announcements = [
     {
       id: 1,

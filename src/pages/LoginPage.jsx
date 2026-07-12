@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Dumbbell, Trophy, Users } from "lucide-react";
+import { CalendarFold, Dumbbell, Trophy, Users } from "lucide-react";
 
 import { LoginForm } from "../components/auth/LoginForm";
 import { PlaceHolderImages } from "../lib/placeholder-images";
@@ -56,7 +56,7 @@ function LoginPage() {
 
           <div className="grid grid-cols-3 gap-6">
             <div className="glass rounded-2xl p-6">
-              <Trophy className="mb-3 text-blue-400" />
+              <Trophy className="mb-3 text-yellow-400" />
 
               <h2 className="text-3xl font-bold">15+</h2>
 
@@ -64,7 +64,7 @@ function LoginPage() {
             </div>
 
             <div className="glass rounded-2xl p-6">
-              <ArrowRight className="mb-3 text-cyan-400" />
+              <CalendarFold className="mb-3 text-cyan-400" />
 
               <h2 className="text-3xl font-bold">50+</h2>
 
