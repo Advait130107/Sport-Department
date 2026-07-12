@@ -10,7 +10,7 @@ function Footer() {
   };
 
   return (
-    <footer className="mt-24 border-t border-[#0a0603]/20 bg-[#241B16]">
+    <footer className="mt-10 border-t border-[#0a0603]/20 bg-[#241B16]">
       <div className="mx-auto max-w-7xl px-8 py-20">
         <div className="grid gap-12 lg:grid-cols-4">
           {/* Brand */}

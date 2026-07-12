@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import EditProfileModal from "../components/profile/EditProfileModal";
 export default function ProfilePage() {
-  const student = getCurrentStudent();
+  const [student, setStudent] = useState(getCurrentStudent());
   const [open, setOpen] = useState(false);
 
   return (
@@ -120,6 +120,12 @@ export default function ProfilePage() {
             />
           </div>
         </div>
+        <EditProfileModal
+          open={open}
+          onClose={() => setOpen(false)}
+          student={student}
+          onSave={setStudent}
+        />
         <Button
           onClick={() => {
             console.log("Edit button clicked");

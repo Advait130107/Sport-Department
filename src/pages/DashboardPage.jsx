@@ -92,7 +92,7 @@ function DashboardPage() {
               Browse Sports
             </Link>
           </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             <div className="rounded-2xl bg-[#2B211B] p-6 border border-[#8B5E3C]/20">
               <Calendar className="mb-4 text-[#D4A373]" size={32} />
               <h2 className="text-3xl font-bold text-white">
@@ -114,12 +114,6 @@ function DashboardPage() {
               </h2>
               <p className="text-[#C9B7A6]">My Registrations</p>
             </div>
-
-            <div className="rounded-2xl bg-[#2B211B] p-6 border border-[#8B5E3C]/20">
-              <ArrowRight className="mb-4 text-[#D4A373]" size={32} />
-              <h2 className="text-3xl font-bold text-white">100%</h2>
-              <p className="text-[#C9B7A6]">Profile Completion</p>
-            </div>
           </div>
         </div>
       </div>
@@ -127,7 +121,7 @@ function DashboardPage() {
       <div className="mt-10">
         <h2 className="mb-5 text-2xl font-bold text-white">Quick Actions</h2>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           <Link
             to="/dashboard/sports"
             className="rounded-2xl bg-[#2B211B] p-6 transition hover:-translate-y-1 hover:bg-[#3A2B22]"
@@ -154,15 +148,6 @@ function DashboardPage() {
 
             <p className="mt-2 text-[#C9B7A6]">View your registrations.</p>
           </Link>
-
-          <Link
-            to="/dashboard/profile"
-            className="rounded-2xl bg-[#2B211B] p-6 transition hover:-translate-y-1 hover:bg-[#3A2B22]"
-          >
-            <h3 className="text-xl font-semibold text-white">Profile</h3>
-
-            <p className="mt-2 text-[#C9B7A6]">Manage your account.</p>
-          </Link>
         </div>
       </div>
       <div className="mt-12">
@@ -171,9 +156,10 @@ function DashboardPage() {
 
           <Link
             to="/dashboard/events"
-            className="text-[#D4A373] hover:text-white transition"
+            className="group inline-flex items-center gap-2 text-[#D4A373] transition hover:text-white"
           >
-            View All →
+            <span>View All</span>
+            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
 
@@ -249,9 +235,10 @@ function DashboardPage() {
 
           <Link
             to="/dashboard/sports"
-            className="text-[#D4A373] transition hover:text-white"
+            className="group inline-flex items-center gap-2 text-[#D4A373] transition hover:text-white"
           >
-            View All →
+            <span>View All</span>
+            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
 
@@ -282,8 +269,9 @@ function DashboardPage() {
                     {sport.players}
                   </span>
 
-                  <span className="text-[#D4A373] group-hover:translate-x-1 transition">
-                    Explore →
+                  <span className="group inline-flex items-center gap-1 text-[#D4A373] group-hover:translate-x-1 transition">
+                    Explore
+                    <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                 </div>
               </div>

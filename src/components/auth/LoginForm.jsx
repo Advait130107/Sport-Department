@@ -74,7 +74,7 @@ export function LoginForm() {
 
               <Input
                 id="rollNo"
-                placeholder="e.g. TYBCS001"
+                placeholder="e.g. 13366"
                 value={rollNo}
                 onChange={(e) => setRollNo(e.target.value)}
                 className="h-12 rounded-xl border border-[#A47149]/20 bg-[#3A2C24] text-[#F8F4EE] placeholder:text-[#C9B7A6] focus:border-[#D4A373]"
@@ -90,7 +90,7 @@ export function LoginForm() {
               <Input
                 id="password"
                 type="password"
-                placeholder="••••••••"
+                placeholder="********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="h-12 rounded-xl border border-[#A47149]/20 bg-[#3A2C24] text-[#F8F4EE] placeholder:text-[#C9B7A6] focus:border-[#D4A373]"

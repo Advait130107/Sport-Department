@@ -33,6 +33,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Alert, AlertDescription } from "../ui/alert";
+
 function FormInput({
   label,
   icon: Icon,
@@ -150,37 +151,19 @@ export function SignUpForm() {
       transition={{ duration: 0.7 }}
       className="w-full"
     >
-      <Card
-        className="
-rounded-[32px]
-border
-border-[#D4A373]/15
-bg-[#2B211B]/75
-shadow-[0_30px_80px_rgba(0,0,0,0.45)]
-backdrop-blur-xl
-"
-      >
-        <div className="mx-auto mb-4 inline-flex items-center rounded-full border border-[#D4A373]/30 bg-[#8B5E3C]/20 px-4 py-1 text-sm font-medium text-[#D4A373]">
-          🎉 New Student Registration
-        </div>
+      <Card className="mt-10 mb-10 rounded-[32px] border border-[#D4A373]/15 bg-[#2B211B]/75 shadow-[0_30px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl">
         <CardHeader className="pb-2 text-center">
           <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#8B5E3C] to-[#D4A373] shadow-lg shadow-[#A47149]/40">
             <Trophy className="h-10 w-10 text-white" />
           </div>
 
           <CardTitle className="text-center">
-            <h2 className="text-4xl font-black text-white">Create Account</h2>
+            <h2 className="text-4xl font-black text-white">Create Account🚀</h2>
 
             <p className="mt-3 text-[#C9B7A6]">
-              Join the Sports Department and participate in college tournaments.
+              Join the Sports Department and Participate in College Tournaments.
             </p>
           </CardTitle>
-
-          <CardDescription className="mt-4 text-base text-[#C9B7A6]">
-            Create your account 🚀
-            <br />
-            Join the Sports Department community.
-          </CardDescription>
         </CardHeader>
         <form onSubmit={handleSignUp}>
           <CardContent className="space-y-8 p-8 md:p-10">
@@ -230,15 +213,11 @@ backdrop-blur-xl
                     </SelectTrigger>
 
                     <SelectContent className="border-[#A47149]/20 bg-[#2B211B] text-[#F8F4EE]">
-                      <SelectItem value="BSc CS">
-                        BSc Computer Science
-                      </SelectItem>
+                      <SelectItem value="BSc CS">BSc</SelectItem>
                       <SelectItem value="BCA">BCA</SelectItem>
                       <SelectItem value="BCom">BCom</SelectItem>
                       <SelectItem value="BA">BA</SelectItem>
-                      <SelectItem value="MSc CS">
-                        MSc Computer Science
-                      </SelectItem>
+                      <SelectItem value="MSc CS">MSc</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -270,12 +249,10 @@ backdrop-blur-xl
                       <SelectItem value="Information Technology">
                         Information Technology
                       </SelectItem>
-
                       <SelectItem value="Commerce">Commerce</SelectItem>
-
                       <SelectItem value="Arts">Arts</SelectItem>
-
                       <SelectItem value="Science">Science</SelectItem>
+                      <SelectItem value="Physics">Physics</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -304,8 +281,21 @@ backdrop-blur-xl
             {/* Security */}
             <div>
               <h3 className="mb-4 text-lg font-semibold text-white">
-                Security
+                Set Password
               </h3>
+              {confirmPassword && (
+                <p
+                  className={`mb-3 text-sm font-medium ${
+                    password === confirmPassword
+                      ? "text-green-400"
+                      : "text-red-400"
+                  }`}
+                >
+                  {password === confirmPassword
+                    ? "✓ Passwords match"
+                    : "✗ Passwords do not match"}
+                </p>
+              )}
 
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                 <FormInput
@@ -313,40 +303,14 @@ backdrop-blur-xl
                   icon={Lock}
                   type="password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setPassword(value);
+                    setPasswordStrength(getPasswordStrength(value));
+                  }}
+                  placeholder="********"
                   required
                 />
-                <div className="space-y-2 md:col-span-2">
-                  {password && (
-                    <>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-[#C9B7A6]">
-                          Password Strength
-                        </span>
-
-                        <span
-                          className={`font-semibold ${
-                            passwordStrength.text === "Weak"
-                              ? "text-red-400"
-                              : passwordStrength.text === "Medium"
-                                ? "text-yellow-400"
-                                : "text-green-400"
-                          }`}
-                        >
-                          {passwordStrength.text}
-                        </span>
-                      </div>
-
-                      <div className="h-2 overflow-hidden rounded-full bg-[#3A2C24]">
-                        <div
-                          className={`h-full rounded-full transition-all duration-500 ${passwordStrength.color}`}
-                          style={{ width: passwordStrength.width }}
-                        />
-                      </div>
-                    </>
-                  )}
-                </div>
 
                 <FormInput
                   label="Confirm Password"
@@ -354,22 +318,9 @@ backdrop-blur-xl
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder="••••••••"
+                  placeholder="********"
                   required
                 />
-                {confirmPassword && (
-                  <p
-                    className={`text-sm font-medium ${
-                      password === confirmPassword
-                        ? "text-green-400"
-                        : "text-red-400"
-                    }`}
-                  >
-                    {password === confirmPassword
-                      ? "✓ Passwords match"
-                      : "✗ Passwords do not match"}
-                  </p>
-                )}
               </div>
             </div>
 
@@ -390,12 +341,12 @@ backdrop-blur-xl
               </Button>
 
               <div className="mt-6 text-center text-sm text-[#C9B7A6]">
-                Already have an account?{" "}
+                Already have an account? Click on{"    "}
                 <Link
                   to="/"
                   className="font-semibold text-[#D4A373] transition-colors hover:text-white"
                 >
-                  Sign In →
+                  Sign In
                 </Link>
               </div>
             </div>
