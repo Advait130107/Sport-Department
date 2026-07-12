@@ -1,8 +1,7 @@
 import { Calendar, Trophy, User, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { sports } from "../lib/data";
 import { getCurrentStudent } from "../auth/storage";
-
+import { sports } from "../lib/data";
 function DashboardPage() {
   // Logged-in student
   const student = getCurrentStudent() || {
@@ -16,10 +15,24 @@ function DashboardPage() {
   // Registrations
   const registrations = JSON.parse(localStorage.getItem("registrations")) || [];
 
+  // Today's date
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
   // Upcoming Events
-  const upcomingEvents = events.filter(
-    (event) => new Date(event.date) >= new Date(),
-  );
+  const upcomingEvents = events.filter((event) => {
+    if (!event.date) return false;
+
+    const eventDate = new Date(event.date);
+
+    if (isNaN(eventDate.getTime())) {
+      return false;
+    }
+
+    eventDate.setHours(0, 0, 0, 0);
+
+    return eventDate >= today;
+  });
 
   // Current Student Registrations
   const myRegistrations = registrations.filter(
@@ -28,7 +41,6 @@ function DashboardPage() {
 
   // Recent Activities
   const recentActivities = myRegistrations.slice(-5).reverse();
-
   // Announcements
   const announcements = [
     {
