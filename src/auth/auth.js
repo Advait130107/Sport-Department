@@ -6,10 +6,11 @@ import { getStudents, saveStudents, saveCurrentStudent } from "./storage";
 export function registerStudent(studentData) {
   const students = getStudents();
 
-  // Check duplicate roll number
+  // Check duplicate Roll Number
   const rollExists = students.some(
     (student) =>
-      student.rollNo.toLowerCase() === studentData.rollNo.toLowerCase(),
+      student.rollNo.trim().toLowerCase() ===
+      studentData.rollNo.trim().toLowerCase(),
   );
 
   if (rollExists) {
@@ -19,10 +20,11 @@ export function registerStudent(studentData) {
     };
   }
 
-  // Check duplicate email
+  // Check duplicate Email
   const emailExists = students.some(
     (student) =>
-      student.email.toLowerCase() === studentData.email.toLowerCase(),
+      student.email.trim().toLowerCase() ===
+      studentData.email.trim().toLowerCase(),
   );
 
   if (emailExists) {
@@ -32,9 +34,26 @@ export function registerStudent(studentData) {
     };
   }
 
+  // Create new student
   const newStudent = {
     id: crypto.randomUUID(),
+
+    // Signup data
     ...studentData,
+
+    // Profile fields (editable later)
+    phone: "",
+    address: "",
+    bloodGroup: "",
+    emergencyContact: "",
+    profilePhoto: "",
+
+    // Optional future fields
+    bio: "",
+    achievements: [],
+    registeredSports: [],
+    registeredEvents: [],
+
     createdAt: new Date().toISOString(),
   };
 
@@ -49,7 +68,7 @@ export function registerStudent(studentData) {
 }
 
 /**
- * Login
+ * Login Student
  */
 export function loginStudent(rollNo, password) {
   const students = getStudents();
@@ -59,8 +78,6 @@ export function loginStudent(rollNo, password) {
       student.rollNo.trim().toLowerCase() === rollNo.trim().toLowerCase() &&
       student.password === password,
   );
-
-  console.log("Matched Student:", student);
 
   if (!student) {
     return {

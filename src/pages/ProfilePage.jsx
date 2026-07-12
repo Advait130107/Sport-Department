@@ -8,6 +8,7 @@ import {
   GraduationCap,
   Building2,
 } from "lucide-react";
+import EditProfileModal from "../components/profile/EditProfileModal";
 export default function ProfilePage() {
   const student = getCurrentStudent();
   const [open, setOpen] = useState(false);
@@ -68,6 +69,29 @@ export default function ProfilePage() {
               label="Roll Number"
               value={student?.rollNo}
             />
+            <InfoRow
+              icon={<Hash size={18} />}
+              label="Phone Number"
+              value={student?.phone}
+            />
+
+            <InfoRow
+              icon={<Hash size={18} />}
+              label="Blood Group"
+              value={student?.bloodGroup}
+            />
+
+            <InfoRow
+              icon={<Hash size={18} />}
+              label="Emergency Contact"
+              value={student?.emergencyContact}
+            />
+
+            <InfoRow
+              icon={<Hash size={18} />}
+              label="Address"
+              value={student?.address}
+            />
           </div>
 
           {/* Academic */}
@@ -97,7 +121,10 @@ export default function ProfilePage() {
           </div>
         </div>
         <Button
-          onClick={() => setOpen(true)}
+          onClick={() => {
+            console.log("Edit button clicked");
+            setOpen(true);
+          }}
           className="mt-5 rounded-xl bg-gradient-to-r from-[#8B5E3C] to-[#D4A373] px-6 py-2 text-white"
         >
           Edit Profile
