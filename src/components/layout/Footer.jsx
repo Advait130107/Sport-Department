@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Dumbbell, Mail, MapPin, Phone, ArrowUp } from "lucide-react";
-
+import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -68,7 +68,7 @@ function Footer() {
               </Link>
 
               <Link
-                to="/dashboard/profile"
+                to="/profile"
                 className="block text-[#C9B7A6] transition hover:translate-x-2 hover:text-[#D4A373]"
               >
                 Profile
@@ -102,18 +102,38 @@ function Footer() {
           {/* Social */}
 
           <div>
-            <h3 className="mb-6 text-xl font-bold text-[#F8F4EE]">Follow Us</h3>
-            <div className="mb-8 flex gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3A2C24] text-xl">
-                📸
-              </div>
+            <div>
+              <h3 className="mb-6 text-xl font-bold text-[#F8F4EE]">
+                Follow Us
+              </h3>
 
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3A2C24] text-xl">
-                💻
-              </div>
+              <div className="mb-8 flex gap-4">
+                <a
+                  href="https://instagram.com/yourusername"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3A2C24] text-2xl text-[#F8F4EE] transition-all duration-300 hover:scale-110 hover:bg-[#E4405F]"
+                >
+                  <FaInstagram />
+                </a>
 
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3A2C24] text-xl">
-                💼
+                <a
+                  href="https://www.linkedin.com/in/advait-uttekar-7325a6303/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3A2C24] text-2xl text-[#F8F4EE] transition-all duration-300 hover:scale-110 hover:bg-[#0A66C2]"
+                >
+                  <FaLinkedin />
+                </a>
+
+                <a
+                  href="https://x.com/yourusername"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#3A2C24] text-2xl text-[#F8F4EE] transition-all duration-300 hover:scale-110 hover:bg-black"
+                >
+                  <FaXTwitter />
+                </a>
               </div>
             </div>
 
