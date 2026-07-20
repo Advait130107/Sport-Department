@@ -8,7 +8,11 @@ import {
   GraduationCap,
   Building2,
   Pencil,
-  ArrowLeft,
+  ChevronLeft,
+  Siren,
+  MapPinHouse,
+  Phone,
+  Droplets,
 } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
@@ -28,7 +32,7 @@ export default function ProfilePage() {
             onClick={() => navigate("/dashboard")}
             className="h-12 w-12 rounded-xl border-[#5B4537] bg-[#2B211B] text-[#D4A373] hover:bg-[#3A2C24] hover:text-white"
           >
-            <ArrowLeft className="h-7 w-7" />
+            <ChevronLeft size={18} />
           </Button>
 
           <h1 className="text-4xl font-black text-white">My Profile</h1>
@@ -85,25 +89,25 @@ export default function ProfilePage() {
               value={student?.rollNo}
             />
             <InfoRow
-              icon={<Hash size={18} />}
+              icon={<Phone size={18} />}
               label="Phone Number"
               value={student?.phone}
             />
 
             <InfoRow
-              icon={<Hash size={18} />}
+              icon={<Droplets size={18} />}
               label="Blood Group"
               value={student?.bloodGroup}
             />
 
             <InfoRow
-              icon={<Hash size={18} />}
+              icon={<Siren size={18} />}
               label="Emergency Contact"
               value={student?.emergencyContact}
             />
 
             <InfoRow
-              icon={<Hash size={18} />}
+              icon={<MapPinHouse size={18} />}
               label="Address"
               value={student?.address}
             />
