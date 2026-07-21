@@ -173,7 +173,7 @@ function DashboardPage() {
           </Link>
         </div>
       </div> */}
-      <div className="mt-12">
+      <div className="mt-20">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-white">Upcoming Events</h2>
 

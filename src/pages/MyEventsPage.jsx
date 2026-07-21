@@ -1,4 +1,4 @@
-import { Calendar, CheckCircle } from "lucide-react";
+import { CalendarDays, CheckCircle } from "lucide-react";
 import { getCurrentStudent } from "../auth/storage";
 
 function MyEventsPage() {
@@ -34,39 +34,50 @@ function MyEventsPage() {
             {myEvents.map((item) => (
               <div
                 key={item.id}
-                className="rounded-3xl border border-[#A47149]/20 bg-[#2B211B] p-8 shadow-lg"
+                className="rounded-3xl border border-[#A47149]/20 bg-[#2B211B] p-8 shadow-lg
+                glass
+                rounded-3xl
+                p-6
+                card-hover"
               >
                 <h2 className="text-2xl font-bold text-[#F8F4EE]">
                   {item.eventName}
                 </h2>
+                <div className="flex flex-row gap-10">
+                  <div className="mt-6 flex items-center gap-3 text-[#C9B7A6]">
+                    <CalendarDays size={20} />
+                    {item.registeredAt}
+                  </div>
 
-                <div className="mt-6 flex items-center gap-3 text-[#C9B7A6]">
-                  <Calendar size={18} />
-                  {item.registeredAt}
+                  <div className="mt-6 flex items-center gap-3 text-green-400">
+                    <CheckCircle size={18} />
+                    {item.status}
+                  </div>
                 </div>
 
-                <div className="mt-4 flex items-center gap-3 text-green-400">
-                  <CheckCircle size={18} />
-                  {item.status}
-                </div>
+                <div className="mt-10 space-y-4 rounded-xl bg-[#433229]/60 p-5">
+                  <div className="flex items-center justify-between border-b border-[#5A4638] pb-3">
+                    <strong className="text-[#D4A373]">Roll No:</strong>
+                    <span className="text-white font-medium">
+                      {item.rollNo}
+                    </span>
+                  </div>
 
-                <div className="mt-8 rounded-xl bg-[#3A2C24] p-4 space-y-2">
-                  <div className="mt-8 space-y-2 rounded-xl bg-[#3A2C24] p-4">
-                    <p>
-                      <strong>Roll No:</strong> {item.rollNo}
-                    </p>
+                  <div className="flex items-center justify-between border-b border-[#5A4638] pb-3">
+                    <strong className="text-[#D4A373]">Name:</strong>
+                    <span className="text-white font-medium">{item.name}</span>
+                  </div>
 
-                    <p>
-                      <strong>Name:</strong> {item.name}
-                    </p>
+                  <div className="flex items-center justify-between border-b border-[#5A4638] pb-3">
+                    <strong className="text-[#D4A373]">Email:</strong>
+                    <span className="text-white font-medium break-all text-right">
+                      {item.email}
+                    </span>
+                  </div>
 
-                    <p>
-                      <strong>Email:</strong> {item.email}
-                    </p>
-
-                    <p>
-                      <strong>Phone:</strong> {item.phone}
-                    </p>
+                  <div className="flex items-center justify-between">
+                    <strong className="text-[#D4A373]">Phone:</strong>
+                    <span className="text-white font-medium">{item.phone}</span>
                   </div>
                 </div>
               </div>
