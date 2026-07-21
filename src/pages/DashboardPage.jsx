@@ -85,8 +85,7 @@ function DashboardPage() {
           </p>
 
           <h1 className="mt-3 text-5xl font-black text-[#F8F4EE]">
-            {greeting},<span className="text-[#D4A373]"> {student.name}</span>{" "}
-            👋
+            {greeting},<span className="text-[#D4A373]"> {student.name}</span>
           </h1>
           <p className="mt-2 text-[#D4A373]">
             {new Date().toLocaleDateString("en-IN", {
@@ -141,7 +140,7 @@ function DashboardPage() {
           </div>
         </div>
       </div>
-      {/* action button */}
+      {/* action button
       <div className="mt-10">
         <h2 className="mb-5 text-2xl font-bold text-white">Quick Actions</h2>
 
@@ -173,7 +172,7 @@ function DashboardPage() {
             <p className="mt-2 text-[#C9B7A6]">View your registrations.</p>
           </Link>
         </div>
-      </div>
+      </div> */}
       <div className="mt-12">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-white">Upcoming Events</h2>
@@ -215,6 +214,35 @@ function DashboardPage() {
               No upcoming events.
             </div>
           )}
+        </div>
+        {/* announcment */}
+        <div className="mt-12">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-2xl font-bold text-white">Announcements</h2>
+          </div>
+
+          <div className="space-y-5">
+            {announcements.map((announcement) => (
+              <div
+                key={announcement.id}
+                className="rounded-2xl border border-[#8B5E3C]/20 bg-[#2B211B] p-6 transition hover:border-[#D4A373]"
+              >
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold text-white">
+                    {announcement.title}
+                  </h3>
+
+                  <span className="rounded-full bg-[#8B5E3C]/20 px-3 py-1 text-sm text-[#D4A373]">
+                    {announcement.type}
+                  </span>
+                </div>
+
+                <p className="mt-3 text-[#C9B7A6]">
+                  {announcement.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
         {/* recent activity */}
         <div className="mt-12">
@@ -300,33 +328,6 @@ function DashboardPage() {
                 </div>
               </div>
             </Link>
-          ))}
-        </div>
-      </div>
-      {/* announcment */}
-      <div className="mt-12">
-        <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-white">Announcements</h2>
-        </div>
-
-        <div className="space-y-5">
-          {announcements.map((announcement) => (
-            <div
-              key={announcement.id}
-              className="rounded-2xl border border-[#8B5E3C]/20 bg-[#2B211B] p-6 transition hover:border-[#D4A373]"
-            >
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl font-semibold text-white">
-                  {announcement.title}
-                </h3>
-
-                <span className="rounded-full bg-[#8B5E3C]/20 px-3 py-1 text-sm text-[#D4A373]">
-                  {announcement.type}
-                </span>
-              </div>
-
-              <p className="mt-3 text-[#C9B7A6]">{announcement.description}</p>
-            </div>
           ))}
         </div>
       </div>

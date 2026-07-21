@@ -155,7 +155,8 @@ function RegisterModal({ event, onClose }) {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="Enter Phone Number"
-              className="w-full rounded-xl bg-[#3A2C24] p-3 text-white outline-none ring-1 ring-transparent transition focus:ring-[#D4A373]"
+              className="w-full rounded-xl bg-[#3A2C24] p-3 text-white outline-none ring-1 ring-transparent transition focus:ring-[#D4A373]
+              required "
             />
           </div>
 

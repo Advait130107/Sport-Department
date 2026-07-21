@@ -70,7 +70,7 @@ export function UserMenu() {
           <div className="border-b border-[#5b4537] p-4">
             <p className="font-bold text-white">{student?.name}</p>
 
-            <p className="text-sm text-[#C9B7A6]">{student?.email}</p>
+            <p className="text-sm text-[#C9B7A6]">{student?.rollNo}</p>
           </div>
 
           <button
