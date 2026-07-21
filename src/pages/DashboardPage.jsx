@@ -1,7 +1,14 @@
-import { Calendar, Trophy, User, ArrowRight } from "lucide-react";
+import {
+  Calendar,
+  Trophy,
+  User,
+  CircleCheckBig,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { getCurrentStudent } from "../auth/storage";
-import { sports } from "../lib/data";
+import { events, sports } from "../lib/data";
 function DashboardPage() {
   // Logged-in student
   const student = getCurrentStudent() || {
@@ -10,8 +17,6 @@ function DashboardPage() {
   };
 
   // Events
-  const events = JSON.parse(localStorage.getItem("events")) || [];
-
   // Registrations
   const registrations = JSON.parse(localStorage.getItem("registrations")) || [];
 
@@ -20,20 +25,7 @@ function DashboardPage() {
   today.setHours(0, 0, 0, 0);
 
   // Upcoming Events
-  const upcomingEvents = events.filter((event) => {
-    if (!event.date) return false;
-
-    const eventDate = new Date(event.date);
-
-    if (isNaN(eventDate.getTime())) {
-      return false;
-    }
-
-    eventDate.setHours(0, 0, 0, 0);
-
-    return eventDate >= today;
-  });
-
+  const upcomingEvents = events.slice(0, 5);
   // Current Student Registrations
   const myRegistrations = registrations.filter(
     (registration) => registration.studentId === student?.id,
@@ -102,17 +94,17 @@ function DashboardPage() {
 
           <div className="mt-8 flex gap-4">
             <Link
-              to="/dashboard/events"
+              to="/dashboard/sports"
               className="rounded-xl bg-[#8B5E3C] px-6 py-3 font-semibold text-white transition hover:bg-[#A47149]"
             >
-              Explore Events
+              Browse Sports
             </Link>
 
             <Link
-              to="/dashboard/sports"
+              to="/dashboard/events"
               className="rounded-xl border border-[#8B5E3C] px-6 py-3 font-semibold text-[#D4A373] transition hover:bg-[#8B5E3C] hover:text-white"
             >
-              Browse Sports
+              Explore Events
             </Link>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -173,6 +165,7 @@ function DashboardPage() {
           </Link>
         </div>
       </div> */}
+      {/* upcoming events  */}
       <div className="mt-20">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-white">Upcoming Events</h2>
@@ -188,18 +181,23 @@ function DashboardPage() {
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {upcomingEvents.length > 0 ? (
-            upcomingEvents.slice(0, 3).map((event, index) => (
+            upcomingEvents.slice(0, 5).map((event, index) => (
               <div
                 key={index}
                 className="rounded-2xl border border-[#8B5E3C]/20 bg-[#2B211B] p-6 hover:border-[#D4A373] transition"
               >
                 <h3 className="text-xl font-semibold text-white">
-                  {event.title}
+                  {event.name}
                 </h3>
 
-                <p className="mt-2 text-[#C9B7A6]">📅 {event.date}</p>
+                <p className="mt-5 mb-2 text-[#C9B7A6] flex flex-row gap-2">
+                  <Calendar size={19} />
+                  <p>{event.date}</p>
+                </p>
 
-                <p className="mt-2 text-[#C9B7A6]">📍 {event.location}</p>
+                <p className="mt-5 mb-2 text-[#C9B7A6] flex flex-row gap-2">
+                  <MapPin size={19} /> {event.location}
+                </p>
 
                 <Link
                   to="/dashboard/events"
@@ -259,7 +257,7 @@ function DashboardPage() {
                     className="flex items-start gap-4 border-b border-[#3A2B22] pb-4 last:border-none"
                   >
                     <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#8B5E3C] text-white">
-                      ✓
+                      <CircleCheckBig />
                     </div>
 
                     <div>

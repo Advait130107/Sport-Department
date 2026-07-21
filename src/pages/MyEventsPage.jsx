@@ -57,21 +57,19 @@ function MyEventsPage() {
 
                 <div className="mt-10 space-y-4 rounded-xl bg-[#433229]/60 p-5">
                   <div className="flex items-center justify-between border-b border-[#5A4638] pb-3">
-                    <strong className="text-[#D4A373]">Roll No:</strong>
-                    <span className="text-white font-medium">
-                      {item.rollNo}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center justify-between border-b border-[#5A4638] pb-3">
                     <strong className="text-[#D4A373]">Name:</strong>
                     <span className="text-white font-medium">{item.name}</span>
                   </div>
-
                   <div className="flex items-center justify-between border-b border-[#5A4638] pb-3">
                     <strong className="text-[#D4A373]">Email:</strong>
                     <span className="text-white font-medium break-all text-right">
                       {item.email}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-[#5A4638] pb-3">
+                    <strong className="text-[#D4A373]">Roll No:</strong>
+                    <span className="text-white font-medium">
+                      {item.rollNo}
                     </span>
                   </div>
 

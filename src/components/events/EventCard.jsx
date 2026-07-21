@@ -31,12 +31,12 @@ export default function EventCard({ event, onRegister }) {
 
         <div className="flex items-center gap-2 text-[#C9B7A6]">
           <Calendar size={18} />
-          July 2026
+          {event.date || "Coming Soon"}
         </div>
 
         <div className="flex items-center gap-2 text-[#C9B7A6]">
           <MapPin size={18} />
-          College Campus
+          {event.location || "College Campus"}
         </div>
 
         <button

@@ -260,6 +260,8 @@ export const events = [
       "Join us for the annual 10k run around the campus. All fitness levels welcome!",
     imageUrl: findImage("event-marathon").imageUrl,
     imageHint: findImage("event-marathon").imageHint,
+    location: "College Campus",
+    date: "August 2026",
   },
   {
     id: "inter-college-football",
@@ -268,6 +270,8 @@ export const events = [
       "The biggest football tournament of the year. Form your teams and compete for glory!",
     imageUrl: findImage("event-inter-college-football").imageUrl,
     imageHint: findImage("event-inter-college-football").imageHint,
+    location: "College Campus",
+    date: "August 2026",
   },
   {
     id: "hackathon",
@@ -276,6 +280,8 @@ export const events = [
       "A 24-hour hackathon to build innovative solutions for the world of sports. Prizes to be won!",
     imageUrl: findImage("event-hackathon").imageUrl,
     imageHint: findImage("event-hackathon").imageHint,
+    location: "College Campus",
+    date: "August 2026",
   },
   {
     id: "swimming-gala",
@@ -284,6 +290,8 @@ export const events = [
       "Compete in various swimming events and showcase your skills in the pool.",
     imageUrl: findImage("event-swimming-gala").imageUrl,
     imageHint: findImage("event-swimming-gala").imageHint,
+    location: "Furguson college Campus",
+    date: "August 2026",
   },
   {
     id: "cricket-league",
@@ -292,6 +300,8 @@ export const events = [
       "The T20 cricket fever is back! Register your team for the most exciting league on campus.",
     imageUrl: findImage("event-cricket-league").imageUrl,
     imageHint: findImage("event-cricket-league").imageHint,
+    location: "College Campus",
+    date: "August 2026",
   },
 ];
 export const students = [
