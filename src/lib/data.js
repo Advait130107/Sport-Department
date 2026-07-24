@@ -303,6 +303,16 @@ export const events = [
     location: "College Campus",
     date: "August 2026",
   },
+  {
+    id: "Foot-Cricket",
+    name: "Foot-Cricket",
+    description:
+      "The T20 cricket fever is back! Register your team for the most exciting league on campus.",
+    imageUrl: findImage("event-cricket-league").imageUrl,
+    imageHint: findImage("event-cricket-league").imageHint,
+    location: "College Campus",
+    date: "setpemtber 2026",
+  },
 ];
 export const students = [
   {

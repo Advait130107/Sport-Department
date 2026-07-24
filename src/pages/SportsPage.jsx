@@ -58,9 +58,9 @@ function SportsPage() {
         </div>
 
         <div className="glass rounded-3xl p-6 card-hover">
-          <Calendar className="mb-3 text-cyan-400" size={34} />
+          <Calendar className="mb-3 text-purple-400" size={34} />
           <h2 className="text-4xl font-bold  ">50+</h2>
-          <p className="mt-2 text-green-400">Annual Events</p>
+          <p className="mt-2 text-cyan-400">Annual Events</p>
         </div>
       </section>
 

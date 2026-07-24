@@ -25,7 +25,7 @@ function DashboardPage() {
   today.setHours(0, 0, 0, 0);
 
   // Upcoming Events
-  const upcomingEvents = events.slice(0, 5);
+  const upcomingEvents = events.slice(0, 6);
   // Current Student Registrations
   const myRegistrations = registrations.filter(
     (registration) => registration.studentId === student?.id,
@@ -181,7 +181,7 @@ function DashboardPage() {
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {upcomingEvents.length > 0 ? (
-            upcomingEvents.slice(0, 5).map((event, index) => (
+            upcomingEvents.slice(0, 6).map((event, index) => (
               <div
                 key={index}
                 className="rounded-2xl border border-[#8B5E3C]/20 bg-[#2B211B] p-6 hover:border-[#D4A373] transition"

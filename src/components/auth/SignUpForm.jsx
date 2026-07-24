@@ -188,7 +188,7 @@ export function SignUpForm() {
                   icon={Hash}
                   value={rollNo}
                   onChange={(e) => setRollNo(e.target.value)}
-                  placeholder="13366"
+                  placeholder="13348"
                   required
                 />
 
